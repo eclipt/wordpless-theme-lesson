@@ -7,6 +7,7 @@ function sakura_theme_setup(){
 add_action('after_setup_theme', 'sakura_theme_setup');
 
 add_theme_support('post-thumbnails');
+add_image_size( 'category-thumb', 600, 9999 ); 
 // スタイルシートのリンクを取得する、引数にpc-cssという名前、
 function sakura_theme_link() {
     wp_enqueue_style ('pc-css', get_template_directory_uri() . '/css/style_pc/css');
