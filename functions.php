@@ -24,3 +24,18 @@ function sakura_theme_link() {
 }
 // アクションフック,wp_enqueue_script関数を使う際に一緒にsakura_theme_linkという関数を呼び出す
 add_action('wp_enque_scripts', 'sakura_theme_link');
+
+
+function sakura_theme_init(){
+     register_post_type(
+         'daily', [
+              "labels" => [
+                  "name" => "日報"              
+         ],
+         "public" => true,
+         "menu_icon" => 'dashicons-buddicons-activity',
+         "menu_position" => 3,
+         'show_in_rest' => true,
+        ]);
+}
+add_action('init','sakura_theme_init');
