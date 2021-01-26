@@ -14,12 +14,12 @@
    
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-
-
-
 <!-- <script type="text/javascript" src="js/common.js"></script> -->
 <link rel="stylesheet" type="text/css" media="screen and ( min-width:769px )" href="<?php echo get_template_directory_uri(); ?>/css/style_pc.css">
 <link rel="stylesheet" type="text/css" media="screen and ( max-width:768px )" href="<?php echo get_template_directory_uri(); ?>/css/style_sp.css">
+
+
+
 <?php wp_head(); ?>
     </head>
 
@@ -27,7 +27,7 @@
     <header>
         <nav class="header header-menu">
             <ul class="flex">
-                <li><a href="#" class="menu-items">TOP</a></li>
+                <li><a href="/" class="menu-items">TOP</a></li>
                 <li><a href="#sec2-profile" id="sec2" class="menu-items">プロフィール</a></li>
                 <li><a href="#sec3-portfolio" id="sec3" class="menu-items">制作実績</a></li>
                 <li><a href="#sec4-newblog" id="sec4" class="menu-items">新着記事</a></li>

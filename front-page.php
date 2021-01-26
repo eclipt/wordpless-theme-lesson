@@ -73,6 +73,7 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
 <?php if(have_posts()): ?>
     <?php while(have_posts()): the_post(); ?>
           <!-- 繰り返し処理する内容 -->
+          <a href="<?php the_permalink() ;?>">
           <div class="blog-content" >
           <?php the_post_thumbnail('thumbnail'); ?>
                     <div class="blog-info">
@@ -80,15 +81,18 @@ echo "今日は".date("Y/m/d").$week[$w]."です";
                         <p><?php the_excerpt(); ?> </p>
                         <a href="#"><?php the_category(); ?></a><a href="#"><?php the_time(); ?></a>
                     </div>
-                </div>         
+                </div>  
+            </a>       
        <?php endwhile; ?>
       <?php else: ?>
      <!-- 投稿データが取得できない場合の処理 -->
+     <p>投稿がありません</p>
   <?php endif; ?>
 
-               
+  </div>
 
-            </div>
+            <a href="/news" class="button blog__button">もっとみる</a>
+
         </section>
 
 
