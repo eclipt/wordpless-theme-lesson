@@ -8,19 +8,18 @@ Template Post Type: post, page, event
 the_post();?>
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="main-content">
+  <div class="daily">
+  <img class="daily__img"  src="<?php the_field('img'); ?>" alt="">
 
-<?php the_post_thumbnail(); ?>
-<h2>これは日報用のPHPです</h2>
+    <h2>これは日報用のPHPです</h2>
+    <p><?php the_field('day'); ?></p>
+    <p><?php the_field('content'); ?></p>
+  
+  </div>
+</div>
 
-<!-- カスタムフィールド取得 -->
-<p><?php the_field('day'); ?></p>
-<p><?php the_field('content'); ?></p>
-<img style="width:600px;" src="<?php the_field('img'); ?>" alt="">
+
 
 
 <?php get_footer(); ?>
