@@ -53,6 +53,8 @@ function sakura_theme_init(){
          "menu_icon" => 'dashicons-buddicons-activity',
          "menu_position" => 3,
          'show_in_rest' => true,
+         'has_archive' => true,
+         'hierarchical' => true, 
         ]);
 }
 add_action('init','sakura_theme_init');
