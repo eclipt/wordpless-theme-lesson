@@ -37,3 +37,31 @@
     background-color: lightpink;
     cursor: pointer;
 }
+
+.post{
+    background-color: #fafafa;
+    display:flex;
+    margin: 1em 0;
+
+}
+
+.post__content{
+    padding: 1em;    
+}
+
+.post__title{
+    color: #070707;
+    font-size: 20px;
+    text-align: left;
+}
+
+.post__text{
+    line-height: 1.5em;
+}
+
+.post__img {
+    width: 360px;
+    height: 100%;
+    object-fit: cover;
+    
+}
