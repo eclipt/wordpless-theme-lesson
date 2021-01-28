@@ -2,6 +2,11 @@
 <?php 
 function sakura_theme_setup(){
     add_theme_support('post-thumbnails');
+    register_nav_menus( array( //複数のナビゲーションメニューを登録する関数
+        //'「メニューの位置」の識別子' => 'メニューの説明の文字列',
+          'main-menu' => 'ドロワー（ハンバーガーメニュー）内部',
+          'footer-menu'  => 'Footer Menu',
+        ) );
 
 }
 
@@ -25,22 +30,21 @@ add_theme_support('post-thumbnails');
 add_image_size( 'category-thumb', 300, 9999 ); 
 
 
-// スタイルシートのリンクを取得する、引数にpc-cssという名前、
-function sakura_theme_link() {
-    wp_enqueue_style( 'common-css', get_template_directory_uri() . '/css/style.css');
-    wp_enqueue_style( 'sp-css', get_template_directory_uri() . '/css/style_sp.css', array(), '1.0.0', 'screen and ( max-width:768px)');
-    wp_enqueue_style( 'pc-css', get_template_directory_uri() . '/css/style_pc.css', array(), '1.0.0', 'screen and ( min-width:769px)');
-    wp_enqueue_style( 'drawer-css', 'https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css');
+// スタイルシートのリンクを取得する関数、引数にpc-cssという名前、
+    function sakura_theme_link(){
+        wp_enqueue_style('common-css', get_template_directory_uri() . '/css/style.css');
+        wp_enqueue_style('sp-css', get_template_directory_uri() . '/css/style_sp.css', array(), '1.0.0', 'screen and ( max-width:768px )');
+        wp_enqueue_style('pc-css', get_template_directory_uri() . '/css/style_pc.css', array(), '1.0.0', 'screen and ( min-width:769px )');
+        wp_enqueue_style('drawer-css', "https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css" );
 
-
-// wp_enqueue_script関数Java scriptを呼び出す時に使う
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-3.2.1.min.js', array(),'1.0.0', true );
-    wp_enqueue_script('iscroll', 'https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js', array('jquery'),'1.0.0', true );
-    wp_enqueue_script('drawer-css', 'https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js', array('jquery','iscroll'),'1.0.0', true );
-    wp_enqueue_script('common', get_template_directory_uri() . '/js/common.js', array('jquery','iscroll','drawer-js'),'1.0.0', true );
+        wp_enqueue_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js");
+        wp_enqueue_script('iscroll', "https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js");
+        wp_enqueue_script('drawer-js', "https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js");
+        wp_enqueue_script('fadethis-js', get_template_directory_uri() . '/js/jquery.fadethis.min.js' );
+        wp_enqueue_script('common-js', get_template_directory_uri() . '/js/common.js');
 }
-// アクションフック,wp_enqueue_script関数を使う際に一緒にsakura_theme_linkという関数を呼び出す
-add_action('wp_enque_scripts', 'sakura_theme_link');
+// アクションフック,wp_enqueue_script関数を使う際に一緒にsakura_theme_linkを使います
+add_action('wp_enqueue_scripts', 'sakura_theme_link');
 
 
 function sakura_theme_init(){
